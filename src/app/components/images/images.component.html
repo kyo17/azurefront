@@ -1,0 +1,20 @@
+
+<div class="mt-3 mb-3">
+  <button class="mx-auto"type="button"
+  mat-raised-button color="primary"
+  (click)="fileInput.click()">
+    Seleccionar imagen
+  </button>
+  <input hidden #fileInput
+   type="file"
+   (change)="OnChange($event)">
+</div>
+
+<div class="mb-3">
+  <div *ngIf="img64">
+    <img style="width:360px;" class="img-thumbnail" [src]="img64" alt="img64" />
+  </div>
+  <div *ngIf="imgActual">
+    <img style="width:360px;" class="img-thumbnail" [src]="imgActual" alt="imgActual" />
+  </div>
+</div>

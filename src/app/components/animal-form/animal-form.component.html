@@ -1,0 +1,21 @@
+
+<div class="container">
+  <form (submit)="onSubmit()" [formGroup]="form">
+    <div class="input-group mb-2">
+      <mat-form-field style="width:100%" class="mx-auto">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="nombre" matInput>
+        <mat-error *ngIf="form.invalid">{{erroresV()}}</mat-error>
+      </mat-form-field>
+    </div>
+  <div class="input-group mb-3">
+    <app-images [imgActual]="dto?.foto" (archivo)="getPic($event)" class="mt-5 mx-auto"></app-images>
+  </div>
+  <div class="input-group">
+    <div class="mx-auto">
+      <button [disabled]="form.invalid" mat-raised-button color=primary>Guardar</button>
+          <button (click)="onCancel()" mat-raised-button>Cancelar</button>
+    </div>
+  </div>
+  </form>
+</div>
