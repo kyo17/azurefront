@@ -17,12 +17,10 @@ export class AnimalCreateComponent implements OnInit {
   }
 
   save(animal: AnimalWrite){
-    /*
     this.service.save(animal).subscribe(() => {
       swal.fire('Animal', 'Animal agregado con éxito', 'success');
       this.router.navigate(['/animales']);
     });
-    */
    console.log(animal);
   }
 }

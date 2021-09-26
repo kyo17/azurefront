@@ -26,7 +26,7 @@ export class AnimalFormComponent implements OnInit {
   dto: AnimalRead;
   form: FormGroup;
   @Output()
-  submit: EventEmitter<AnimalWrite> = new EventEmitter<AnimalWrite>();
+  OnSubmit: EventEmitter<AnimalWrite> = new EventEmitter<AnimalWrite>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -61,7 +61,7 @@ export class AnimalFormComponent implements OnInit {
     return '';
   }
   onSubmit() {
-    this.submit.emit(this.form.value);
+    this.OnSubmit.emit(this.form.value);
   }
   getPic(file) {
     this.form.get('foto').setValue(file);
