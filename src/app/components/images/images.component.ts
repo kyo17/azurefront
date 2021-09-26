@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { toBase64 } from 'src/app/material/Funciones';
 import swal from 'sweetalert2';
-import { HttpEventType } from '@angular/common/http';
+
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -23,8 +23,8 @@ export class ImagesComponent implements OnInit {
       if (file.type.indexOf('image') == 0) {
         if (file.size < (1024 * 1024) * 17) {
           toBase64(file).then((value: string) => (this.img64 = value));
+          this.imgActual = null;
         this.archivo.emit(file);
-        this.imgActual = null;
         }else{
           swal.fire('Error', 'La imagen ' + file.name.toUpperCase() +
           ' sobrepasa '+ Math.round(file.size / (1024 * 1024)) +

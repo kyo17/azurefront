@@ -30,12 +30,18 @@
     <tr>
       <th scope="colo">Nombre</th>
       <th scope="col">Fotografia</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
     </tr>
     </thead>
   <tbody>
     <tr *ngFor="let a of animales">
-      <td>{{a.nombre}}</td>
+      <td><b>{{a.nombre}}</b></td>
       <td><img class="img-thumbnail" src="{{a.foto}}" alt="{{a.nombre}}"></td>
+      <td><a mat-raised-button color="primary" routerLink="/animal/edit/{{a.id}}">Editar</a></td>
+      <td><button mat-raised-button color="warn"
+        [swal]="{title: 'Confirmación', text: 'Deseas eliminar este dato?',
+      showCancelButton: true}"(confirm)="toDelete(a.id)">Eliminar</button></td>
     </tr>
   </tbody>
 </table>

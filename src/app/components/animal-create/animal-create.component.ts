@@ -26,8 +26,6 @@ export class AnimalCreateComponent implements OnInit {
           swal.fire('Animal', 'El animal '+ animal.nombre + ' ha sido agregado con éxito', 'success');
         this.router.navigate(['/animales']);
         }
-      }else if (e.type === HttpEventType.Response) {
-
       }
     });
   }

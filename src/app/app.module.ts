@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ImagesComponent } from './components/images/images.component';
 import { AnimalCreateComponent } from './components/animal-create/animal-create.component';
 import { AnimalEditComponent } from './components/animal-edit/animal-edit.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AnimalEditComponent } from './components/animal-edit/animal-edit.compon
     HttpClientModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

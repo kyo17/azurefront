@@ -1,2 +1,9 @@
 
-<app-animal-form [dto]="dto" (OnSubmit)="editChanges($event)"></app-animal-form>
+<div class="container">
+  <app-animal-form *ngIf="dto" [dto]="dto" (OnSubmit)="editChanges($event)"></app-animal-form>
+<div *ngIf="progress > 0" class="mt-5 progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+  attr.aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100"
+  [ngStyle]="{width:progress+'%'}">{{progress}}</div>
+</div>
+</div>

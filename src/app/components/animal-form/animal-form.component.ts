@@ -17,16 +17,17 @@ export class AnimalFormComponent implements OnInit {
     private nav: Router
   ) {}
 
-  img64: string;
-  @Output()
-  archivo: EventEmitter<File> = new EventEmitter<File>();
-  @Input()
-  imgActual: string;
+  //@Output()
+  //archivo: EventEmitter<File> = new EventEmitter<File>();
+
   @Input()
   dto: AnimalRead;
+
   form: FormGroup;
+
   @Output()
   OnSubmit: EventEmitter<AnimalWrite> = new EventEmitter<AnimalWrite>();
+  newImg = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -61,9 +62,13 @@ export class AnimalFormComponent implements OnInit {
     return '';
   }
   onSubmit() {
+    if (!this.newImg) {
+      this.form.patchValue({'foto': null});
+    }
     this.OnSubmit.emit(this.form.value);
   }
   getPic(file) {
+    this.newImg = true;
     this.form.get('foto').setValue(file);
   }
   onCancel(): void {
