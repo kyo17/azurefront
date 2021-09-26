@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import { NoopAnimationsModule, BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -19,9 +20,12 @@ import {MatTableModule} from '@angular/material/table';
     MatFormFieldModule,
     MatCardModule,
     MatTableModule,
+    NoopAnimationsModule,
+    BrowserAnimationsModule
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule,
   ]
 })
 export class MaterialModule { }

@@ -1,3 +1,4 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnimalWrite } from 'src/app/DTOs/Write/AnimalWrite';
@@ -12,15 +13,22 @@ import swal from 'sweetalert2';
 export class AnimalCreateComponent implements OnInit {
 
   constructor(private service: AnimalService, private router: Router) { }
+  progress: number = 0;
 
   ngOnInit(): void {
   }
 
   save(animal: AnimalWrite){
-    this.service.save(animal).subscribe(() => {
-      swal.fire('Animal', 'Animal agregado con éxito', 'success');
-      this.router.navigate(['/animales']);
+    this.service.save(animal).subscribe((e) => {
+      if (e.type === HttpEventType.UploadProgress) {
+        this.progress = Math.round((e.loaded / e.total) * 100);
+        if (this.progress == 100) {
+          swal.fire('Animal', 'El animal '+ animal.nombre + ' ha sido agregado con éxito', 'success');
+        this.router.navigate(['/animales']);
+        }
+      }else if (e.type === HttpEventType.Response) {
+
+      }
     });
-   console.log(animal);
   }
 }

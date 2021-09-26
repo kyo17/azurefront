@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -21,9 +21,13 @@ export class AnimalService {
     );
   }
 
-  save(animal: AnimalWrite) {
+  save(animal: AnimalWrite): Observable<HttpEvent<{}>> {
     const data = this.sendPic(animal);
-    return this.http.post(this.url, data);
+    const req = new HttpRequest('POST', this.url, data, {
+      reportProgress: true
+    });
+    return this.http.request(req);
+    //return this.http.post(this.url, data);
   }
 
   private sendPic(animal: AnimalWrite): FormData {
