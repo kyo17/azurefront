@@ -15,6 +15,7 @@ import { ImagesComponent } from './components/images/images.component';
 import { AnimalCreateComponent } from './components/animal-create/animal-create.component';
 import { AnimalEditComponent } from './components/animal-edit/animal-edit.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ImagesComponent,
     AnimalCreateComponent,
     AnimalEditComponent,
+    AnimalDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,8 +20,8 @@ export class ImagesComponent implements OnInit {
   OnChange(event): void {
     if (event.target.files.length > 0) {
       const file: File = event.target.files[0];
-      if (file.type.indexOf('image') == 0) {
-        if (file.size < (1024 * 1024) * 17) {
+      if (file.type.indexOf('image') == 0) { // Validación de tipo imagen
+        if (file.size < (1024 * 1024) * 17) { // Validación del tamaño de la imagen
           toBase64(file).then((value: string) => (this.img64 = value));
           this.imgActual = null;
         this.archivo.emit(file);

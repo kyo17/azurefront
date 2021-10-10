@@ -42,6 +42,7 @@
       <td><button mat-raised-button color="warn"
         [swal]="{title: 'Confirmación', text: 'Deseas eliminar este dato?',
       showCancelButton: true}"(confirm)="toDelete(a.id)">Eliminar</button></td>
+      <td><a mat-raised-button color="primary" routerLink="/animal/details/{{a.id}}">Detalles</a></td>
     </tr>
   </tbody>
 </table>
