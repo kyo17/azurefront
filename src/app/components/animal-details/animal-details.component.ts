@@ -2,7 +2,10 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+} from '@angular/router';
 
 import { AnimalRead } from 'src/app/DTOs/Read/AnimalRead';
 import { AnimalService } from 'src/app/services/animal.service';
@@ -16,7 +19,8 @@ export class AnimalDetailsComponent implements OnInit {
 
   constructor(
     private service: AnimalService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private nav: Router
   ) { }
 
   dto: AnimalRead;
@@ -29,4 +33,7 @@ export class AnimalDetailsComponent implements OnInit {
     });
   }
 
+  cancel(): void {
+    this.nav.navigate(['/animales']);
+  }
 }
