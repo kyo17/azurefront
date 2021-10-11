@@ -64,7 +64,6 @@ border-radius: 4px;
   margin-top: 10px;
   transition-delay: 0.3s;
 }
-*/
 
 .cards-list {
   z-index: 0;
@@ -95,7 +94,7 @@ border-radius: 4px;
   height: inherit;
   border-radius: 40px;
   object-fit: cover;
-  /*filter: sepia(80%);*/
+
 }
 
 .card .card_title {
@@ -127,3 +126,8 @@ border-radius: 4px;
     flex-direction: column;
   }
 }
+*/
+
+
+
+
